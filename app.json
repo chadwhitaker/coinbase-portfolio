@@ -1,0 +1,23 @@
+{
+  "name": "Coinbase Portfolio",
+  "description": "Node application to view your Coinbase Portfolio from the Numbar app.",
+  "repository": "https://github.com/chadwhitaker/coinbase-portfolio",
+  "env": {
+    "HOST": {
+      "description": "This is required by Node app running on Heroku.",
+      "value": "0.0.0.0"
+    },
+    "CLIENT_AUTH_KEY": {
+      "description": "This will be your password to securely access your portfolio from Numbar.",
+      "generator": "secret"
+    },
+    "COINBASE_API_KEY": {
+      "description": "Insert your Coinbase API Key here.",
+      "value": "..."
+    },
+    "COINBASE_API_SECRET": {
+      "description": "Insert your Coinbase API Secret here.",
+      "value": "..."
+    }
+  }
+}
