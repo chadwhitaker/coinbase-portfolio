@@ -42,6 +42,11 @@ var numbarFormat = function (value, minimumFractionDigits, maximumFractionDigits
 };
 
 
+app.get('/', function(req, res, next) {
+  res.redirect('/portfolio');
+});
+
+
 app.get('/portfolio', auth, function(req, res, next) {
   var coinfolio = {
     coinbaseBalance: 0,
