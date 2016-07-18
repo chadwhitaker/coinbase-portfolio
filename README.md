@@ -29,18 +29,18 @@ Note: Pay close attention to the permissions you set. You'll notice that you wil
 
 ## 2. Deploy the repo
 
-**a) Clone repo**
+**Option A) Deploy directly to Heroku (recommended)**
 
+After you click the "Deploy to Heroku" button below, head to Step 3 to instantly configure your app.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/chadwhitaker/coinbase-portfolio)  
+
+**Option B) Clone repo (optional)**
+
+Or you can clone the repo and then deploy however you prefer.
 ```
 git clone git@github.com:chadwhitaker/coinbase-portfolio.git
 ```
-and then deploy to your server however you prefer.
-
-**b) Deploy directly to Heroku (recommended)**
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/chadwhitaker/coinbase-portfolio)
-
-After you click the "Deploy to Heroku" button head to the next steps to instantly configure your app.
 
 ## 3. Config your Environment Variables
 
@@ -53,8 +53,8 @@ If you used the "Deploy to Heroku" button, you should now see the "Config Variab
 
 ## 4. Insert your Endpoint URL in your Numbar preferences
 
-Your endpoint URL will be something like `https://<your-app-id>.herokuapp.com/portfolio`. Insert this in your Numbar preferences.
+Your Endpoint URL will be something like `https://<your-app-id>.herokuapp.com/portfolio`. Insert this URL as the "Endpoint URL" in your Numbar preferences.
 
-Numbar will automatically prompt you for your secure password.
+Numbar will automatically prompt you for your secure password:
   - Username: `portfolio`
   - Password: `<the password your created on Step 3>`
