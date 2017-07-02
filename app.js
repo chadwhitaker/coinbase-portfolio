@@ -19,12 +19,11 @@ var auth = function (req, res, next) {
   };
 
   var user = basicAuth(req);
-
-  if (!user || !user.name || !user.pass) {
+  if (!user || !user.name) {
     return unauthorized(res);
   };
 
-  if (user.name === 'portfolio' && user.pass === config.clientAuthKey) {
+  if (user.name === config.clientAuthKey && !user.pass) {
     return next();
   } else {
     return unauthorized(res);

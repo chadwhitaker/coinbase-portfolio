@@ -58,8 +58,8 @@ If you used the "Deploy to Heroku" button, you should now see the "Config Variab
 Your Endpoint URL will be something like `https://<your-app-id>.herokuapp.com/portfolio`. Insert this URL as the "Endpoint URL" in your Numbar preferences.
 
 Numbar will automatically prompt you for your secure password:
-  - Username: `portfolio`
-  - Password: `<the password your created on Step 3>`
+  - Username: `<the CLIENT_AUTH_KEY you created on Step 3>`
+  - Password: `<blank>`
 
 
 ## Contribution
