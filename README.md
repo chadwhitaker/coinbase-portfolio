@@ -14,19 +14,11 @@ Note: Pay close attention to the permissions you set. You'll notice that you wil
 
 3. Enter your 2-step verification code if required.
 
-4. Select "all" Accounts and "wallet:accounts:read" Permission.
+4. Select "all" Accounts and the "wallet:accounts:read" Permission and click "Create".
 
   ![Configure your API Key](http://i.imgur.com/a6xrRJl.png)
 
-5. Click "Create" and enter your 2-step verification code again if required.
-
-6. Click "Show" for the API Key you just created.
-
-  ![Show your API Key](http://i.imgur.com/RRmwB9R.png)
-
-7. Yep! Enter your 2-step verification code again if required :)
-
-8. You now have access to your `API Key` and `API Secret`. Take note for the next step.
+5. You now have access to your `API Key` and `API Secret`. Take note for the next step.
 
 
 ### 2. Deploy the repo
