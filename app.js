@@ -1,9 +1,9 @@
-var express = require('express');
-var logger = require('morgan');
-var bodyParser = require('body-parser');
-var basicAuth = require('basic-auth');
 var config = require('./config');
 var coinbase = require('./helpers/coinbase');
+var basicAuth = require('basic-auth');
+var bodyParser = require('body-parser');
+var express = require('express');
+var logger = require('morgan');
 
 var app = express();
 
@@ -136,7 +136,6 @@ app.get('/portfolio', auth, function(req, res, next) {
 
 
 if (!module.parent) {
-  // if we're run directly, start up the server
   server = app.listen(config.port, config.host, function () {
     var port = server.address().port;
     var host = server.address().address;
