@@ -27,7 +27,7 @@ Note: Pay close attention to the permissions you set. You'll notice that you wil
 
 After you click the "Deploy to Heroku" button below, head to Step 3 to instantly configure your app.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/chadwhitaker/coinbase-portfolio)  
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/chadwhitaker/coinbase-portfolio/releases/latest)  
 
 **Option B) Clone repo (optional)**
 
