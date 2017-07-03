@@ -1,7 +1,7 @@
 {
   "name": "coinbase-portfolio",
   "version": "1.1.0",
-  "description": "Node application to view your Coinbase Portfolio from the Numbar app.",
+  "description": "A NodeJS application to view your Coinbase Portfolio from the Numbar app.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",

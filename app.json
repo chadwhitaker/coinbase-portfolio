@@ -1,6 +1,6 @@
 {
   "name": "Coinbase Portfolio",
-  "description": "Node application to view your Coinbase Portfolio from the Numbar app.",
+  "description": "A NodeJS application to view your Coinbase Portfolio from the Numbar app.",
   "repository": "https://github.com/chadwhitaker/coinbase-portfolio",
   "env": {
     "HOST": {

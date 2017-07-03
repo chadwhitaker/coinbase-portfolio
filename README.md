@@ -1,12 +1,12 @@
 # Coinbase Portfolio
-Node application to view your Coinbase Portfolio from the [Numbar app](https://numbarapp.com). This is an excellent way to carefully watch your Coinbase Portfolio directly from your macOS menu bar.
+A NodeJS application to view your Coinbase Portfolio from the [Numbar app](https://numbarapp.com). This is an excellent way to carefully watch your Coinbase Portfolio directly from the macOS menu bar.
 
 ## Install
 Installation is easy. Either deploy directly to Heroku or clone the repo and deploy using your preferred method and service.
 
 ### 1. Obtain your Coinbase API Keys
 
-Note: Pay close attention to the permissions you set. You'll notice that you will only setup *read access* on your wallet to obtain the wallet's balance.
+Note: Pay close attention to the permissions you set. You'll notice that you will only setup *read access* for your wallets' balance.
 
 1. Log in to your Coinbase account and visit the [API Access](https://www.coinbase.com/settings/api) settings.
 
@@ -14,11 +14,11 @@ Note: Pay close attention to the permissions you set. You'll notice that you wil
 
 3. Enter your 2-step verification code if required.
 
-4. Select "all" Accounts and the "wallet:accounts:read" Permission and click "Create".
+4. Select "all" Accounts and the "wallet:accounts:read" Permission, then click "Create".
 
   ![Configure your API Key](http://i.imgur.com/a6xrRJl.png)
 
-5. You now have access to your `API Key` and `API Secret`. Take note for the next step.
+5. You now have access to your `API Key` and `API Secret`. Take note of these values for the next steps.
 
 
 ### 2. Deploy the repo
@@ -51,8 +51,7 @@ Your Endpoint URL will be something like `https://<your-app-id>.herokuapp.com/po
 
 Numbar will automatically prompt you for your secure password:
   - Username: `<the CLIENT_AUTH_KEY you created on Step 3>`
-  - Password: `<blank>`
-
+  - Password: `<leave blank>`
 
 ## Contribution
 
