@@ -73,7 +73,8 @@ app.get('/portfolio', auth, function(req, res, next) {
     var sortedAccounts = [];
 
     // Insert manually entered accounts
-    accounts = accounts.concat(JSON.parse(config.settings.additionalAccounts));
+    if (config.settings.additionalAccounts)
+      accounts = accounts.concat(JSON.parse(config.settings.additionalAccounts));
 
     // Sort by `settings.currencyOrder`
     config.settings.currencyOrder.forEach(function (key) {
