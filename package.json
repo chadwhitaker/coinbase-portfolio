@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/chadwhitaker/coinbase-portfolio",
   "engines": {
-    "node": "6.x"
+    "node": "6.11.x",
+    "npm": "3.10.x"
   },
   "dependencies": {
     "basic-auth": "^1.0.3",
