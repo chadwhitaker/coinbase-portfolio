@@ -4,6 +4,7 @@ var basicAuth = require('basic-auth');
 var bodyParser = require('body-parser');
 var coinbase = require('./helpers/coinbase.js');
 var logger = require('morgan');
+var request = require('request-promise');
 var util = require('./helpers/util.js');
 
 var app = express();
@@ -36,6 +37,7 @@ app.get('/', function(req, res, next) {
 });
 
 app.get('/portfolio', auth, function(req, res, next) {
+  var accounts = [];
   var menubar = [];
   var dropdown = [];
   var portfolio = {
@@ -69,12 +71,55 @@ app.get('/portfolio', auth, function(req, res, next) {
     menubar = menubar.join(' | ');
 
     return coinbase.getAccounts();
-  }).then(function (accounts) {
-    var sortedAccounts = [];
+  }).then(function (_accounts) {
+    accounts = _accounts;
 
     // Insert manually entered accounts
-    if (config.settings.additionalAccounts)
-      accounts = accounts.concat(JSON.parse(config.settings.additionalAccounts));
+    if (config.settings.manualAccounts)
+      accounts = accounts.concat(JSON.parse(config.settings.manualAccounts));
+
+    // Process Blockchain based account
+    if (config.settings.blockchainAccounts) {
+      blockchainAccounts = JSON.parse(config.settings.blockchainAccounts).map(function (account) {
+        return new Promise(function (resolve, reject) {
+          var balance = 0;
+
+          request({
+            method: 'GET',
+            url: 'https://blockchain.info/balance?active=' + account.wallets.join('|'),
+            json: true
+          }).then(function (blockchain) {
+            for(var wallet in blockchain)
+              balance += blockchain[wallet].final_balance;
+
+            accounts.push({
+              name: account.name,
+              currency: account.currency,
+              balance: {
+                amount: balance / 100000000,
+                currency: account.currency
+              }
+            });
+            resolve();
+          }).catch(function (error) {
+            console.log(error);
+            accounts.push({
+              name: account.name,
+              currency: account.currency,
+              balance: {
+                amount: null,
+                currency: account.currency
+              }
+            });
+            resolve();
+          });
+        });
+      });
+
+      return Promise.all(blockchainAccounts);
+    }
+  }).then(function () {
+    var sortedAccounts = [];
 
     // Sort by `settings.currencyOrder`
     config.settings.currencyOrder.forEach(function (key) {
@@ -92,7 +137,7 @@ app.get('/portfolio', auth, function(req, res, next) {
 
     sortedAccounts.forEach(function (account) {
       // Calculate native_balance for manually entered accounts
-      if (!account.native_balance || !account.native_balance.amount) {
+      if ((!account.native_balance || !account.native_balance.amount) && account.balance.amount) {
         account.native_balance = {
           amount: parseFloat(account.balance.amount) * portfolio.prices[account.currency]
         }
@@ -105,6 +150,12 @@ app.get('/portfolio', auth, function(req, res, next) {
         });
 
         portfolio.total += parseFloat(account.native_balance.amount);
+      }
+      else if (account.balance.amount == null) {
+        dropdown.push({
+          title: account.name,
+          value: '--'
+        });
       }
 
       // Create list of currencies for pricing list

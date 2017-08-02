@@ -16,6 +16,7 @@ module.exports = {
     currencyPair: process.env.SETTINGS_CURRENCY_PAIR || 'USD',
     currencyMenubar: process.env.SETTINGS_CURRENCY_MENUBAR || ['BTC', 'ETH'],
     currencyOrder: process.env.SETTINGS_CURRENCY_ORDER || ['BTC', 'ETH', 'LTC', 'USD'],
-    additionalAccounts: process.env.SETTINGS_ADDITIONAL_ACCOUNTS
+    manualAccounts: process.env.SETTINGS_MANUAL_ACCOUNTS,
+    blockchainAccounts: process.env.SETTINGS_BLOCKCHAIN_ACCOUNTS
   }
 };
