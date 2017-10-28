@@ -66,7 +66,7 @@ app.get('/portfolio', auth, function(req, res, next) {
   Promise.all(prices).then(function () {
     // Show pricing list in menubar
     config.settings.currencyMenubar.forEach(function (currency) {
-      menubar.push((portfolio.prices[currency]) ? '$' + util.numbarFormat(portfolio.prices[currency]) : '--');
+      menubar.push((portfolio.prices[currency]) ? util.numbarFormat(portfolio.prices[currency], 0, 0) : '--');
     });
     menubar = menubar.join(' | ');
 
